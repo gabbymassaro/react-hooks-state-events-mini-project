@@ -5,10 +5,16 @@ function TaskList({ tasks }) {
 
   const [taskList, setTaskList] = useState(tasks);
 
+  function deleteTask(event) {
+    event.preventDefault()
+    console.log("Hi")
+  }
+
+
   return (
     <div className="tasks">
       {taskList.map((task, index) => (
-        <Task key={index} text={task.text} category={task.category} />)
+        <Task key={index} text={task.text} category={task.category} onDelete={deleteTask}/>)
       )}
     </div>
   );
