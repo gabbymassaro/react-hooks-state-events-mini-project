@@ -6,17 +6,8 @@ import TaskList from "./TaskList";
 import { CATEGORIES, TASKS } from "../data";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [taskList, setTaskList] = useState("")
-  const [filteredCategories, setFilteredCategories] = useState([])
-
-
-  // console.log(taskList)
-  // function filterByCategory() {
-  //   if (selectedCategory === taskList.category){
-
-  //   }
-  // }
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [taskList, setTaskList] = useState(TASKS)
 
   return (
     <div className="App">
@@ -27,7 +18,7 @@ function App() {
         setSelectedCategory={setSelectedCategory}/>
       <NewTaskForm />
       <TaskList
-        tasks={TASKS}
+        selectedCategory={selectedCategory}
         taskList={taskList}
         setTaskList={setTaskList}
       />
