@@ -3,7 +3,7 @@ import React from "react";
 function CategoryFilter({ categories, selectedCategory, setSelectedCategory }) {
 
   function selected(category) {
-    setSelectedCategory(category === selectedCategory ? '' : category)
+    setSelectedCategory(category === selectedCategory ? 'All' : category)
   }
 
   return (
@@ -13,7 +13,7 @@ function CategoryFilter({ categories, selectedCategory, setSelectedCategory }) {
           <button
             key={category}
             onClick={() => selected(category)}
-            className={category === selectedCategory ? 'selected' : ''}
+            className={category === selectedCategory ? 'selected' : 'All'}
           > {category}
           </button>)
         )}
