@@ -11,7 +11,7 @@ function NewTaskForm({ categories }) {
       <label>
         Category
         <select name="category">
-        {categories.map((category) => (<option key={category}> {category}</option>))}
+        {categories.slice(1).map((category) => (<option key={category}> {category}</option>))}
         </select>
       </label>
       <input type="submit" value="Add task" />
