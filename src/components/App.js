@@ -31,7 +31,8 @@ function App() {
         categories={CATEGORIES}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}/>
-      <NewTaskForm />
+      <NewTaskForm
+        categories={CATEGORIES}/>
       <TaskList
         tasks={tasksToDisplay}
         deleteTask={deleteTask}
