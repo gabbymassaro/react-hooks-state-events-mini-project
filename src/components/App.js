@@ -8,6 +8,8 @@ import { CATEGORIES, TASKS } from "../data";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [taskList, setTaskList] = useState(TASKS)
+  const [newTask, setNewTask] = useState('')
+  const [newCategory, setNewCategory] = useState('')
 
   function deleteTask(taskToDelete) {
     const updateTasks = taskList.filter(task => task !== taskToDelete)
@@ -24,6 +26,16 @@ function App() {
     }
   })
 
+  function inputTask(event) {
+    const input = event.target.value
+    setNewTask(input)
+  }
+
+  function onChange(event) {
+    const select = event.target.value
+    setNewCategory(select)
+  }
+
   return (
     <div className="App">
       <h2>My tasks</h2>
@@ -32,7 +44,9 @@ function App() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}/>
       <NewTaskForm
-        categories={CATEGORIES}/>
+        categories={CATEGORIES}
+        inputTask={inputTask}
+        onChange={onChange}/>
       <TaskList
         tasks={tasksToDisplay}
         deleteTask={deleteTask}
