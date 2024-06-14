@@ -1,9 +1,9 @@
 import React from "react";
 
-function NewTaskForm({ categories, inputTask, onChange }) {
+function NewTaskForm({ categories, inputTask, onChange, onSubmit }) {
 
   return (
-    <form className="new-task-form">
+    <form className="new-task-form" onSubmit={onSubmit}>
       <label>
         Details
         <input type="text" name="text" onChange={inputTask}/>

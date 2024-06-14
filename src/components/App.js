@@ -36,6 +36,21 @@ function App() {
     setNewCategory(select)
   }
 
+  function onSubmit(event) {
+    event.preventDefault()
+    const newTaskItem = ({
+      text: newTask,
+      category: newCategory
+    })
+    onItemFormSubmit(newTaskItem)
+  }
+
+  function onItemFormSubmit(newTaskItem) {
+    setTaskList([newTaskItem, ...taskList])
+  }
+
+
+
   return (
     <div className="App">
       <h2>My tasks</h2>
@@ -46,7 +61,8 @@ function App() {
       <NewTaskForm
         categories={CATEGORIES}
         inputTask={inputTask}
-        onChange={onChange}/>
+        onChange={onChange}
+        onSubmit={onSubmit}/>
       <TaskList
         tasks={tasksToDisplay}
         deleteTask={deleteTask}
